@@ -1,0 +1,54 @@
+
+.menuPage{
+    width:100%;
+    height:100vh;
+    display: flex;
+    margin:15px
+}
+
+.leftSection{
+    width:20%;
+    height: 100vh;
+    /* background-color: aquamarine; */
+}
+
+
+.itemImage{
+    width:250px;
+    height:150px;
+    border-top-left-radius: 5px;
+   border-top-right-radius: 5px
+
+}
+
+.itemName{
+    margin-left: 20px;
+    font-size: 24px;
+    color: blue;
+    margin-bottom: 5px;
+}
+
+.itemPrice{
+    margin-left:20px;
+    font-size: 20px;
+    margin-top:5px;
+    margin-bottom:5px;
+}
+
+.itemDescription{
+    margin-left:20px;
+    margin-top:5px
+}
+
+.iteamsName{
+    font-size: 24px;
+    font-weight: 900px;
+}
+
+.addButton{
+    width:65px;
+    height: 25px;
+display: flex;
+margin-left:150px;
+margin-bottom:5px
+}

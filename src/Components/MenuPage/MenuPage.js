@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import classes from "./MenuPage.module.css"
-
 import axios from "axios"
+import LeftSection from '../LeftSection/LeftSection'
+
+
+// import axios from "axios"
 var sum = 0
 function MenuPage() {
 
@@ -26,14 +29,14 @@ function MenuPage() {
 
 
 
-    useEffect(() => {
-        var localData = localStorage.getItem("cartData") ? JSON.parse(localStorage.getItem("cartData")) : []
-        if (localData) {
+    // useEffect(() => {
+    //     var localData = localStorage.getItem("cartData") ? JSON.parse(localStorage.getItem("cartData")) : []
+    //     if (localData) {
 
-            setArr(localData)
-        }
-         console.log("local data updated")
-    }, [])
+    //         setArr(localData)
+    //     }
+    //      console.log("local data updated")
+    // }, [])
 
 
 
@@ -47,12 +50,14 @@ function MenuPage() {
         let clikedCart = data.filter(item => {
             return (id === item.id)
         })
-        console.log(...clikedCart)
-        arr.push(...clikedCart)
-        setArr(arr)
-        console.log(arr)
-        localStorage.setItem("cartData", JSON.stringify(arr))
-window.location.reload()
+        console.log(clikedCart)
+        clikedCart.foodid = id
+        axios.post("https://60375ca8543504001772228a.mockapi.io/foodApp",...clikedCart)
+//         arr.push(...clikedCart)
+//         setArr(arr)
+//         console.log(arr)
+//         localStorage.setItem("cartData", JSON.stringify(arr))
+// window.location.reload()
     }
 
 
@@ -65,7 +70,7 @@ window.location.reload()
     return (
         <div className={classes.menuPage}>
 
-            <div className={classes.leftSection}>
+            {/* <div className={classes.leftSection}>
                 <p className={classes.iteamsName}>Item Name</p>
                 {
 
@@ -80,7 +85,8 @@ window.location.reload()
                 <p>Total Price:{arr.reduce((acc, item) => {
                     return (acc + parseInt(item.itemPrice))
                 }, 0)}  </p> */}
-            </div>
+            {/* </div> */} 
+            <LeftSection/>
 
             <div className={classes.rightSection}>
                 {
